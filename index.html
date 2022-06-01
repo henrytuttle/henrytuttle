@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Volume Calculator</title>
+    <style>
+        .box{
+            color: #000000;
+            padding: 20px;
+            display: none;
+            margin-top: 20px;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("select").change(function(){
+                $(this).find("option:selected").each(function(){
+                    var optionValue = $(this).attr("value");
+                    if(optionValue){
+                        $(".box").not("." + optionValue).hide();
+                        $("." + optionValue).show();
+                    } else{
+                        $(".box").hide();
+                    }
+                });
+            }).change();
+        });
+    </script>
+    <script type="text/javascript">
+        function CylinderVolume(R, H) {
+            const V=3.14*R**2*H
+            alert("Cylinder Volume: " + V);
+        }
+    </script>
+    <script type="text/javascript">
+        function SphereVolume(R) {
+            console.log('sphere r', R);
+            const V=4.0/3*3.14*R**3
+            alert("Sphere Volume: " + V);
+        }
+    </script>
+</head>
+<body>
+<h1>Choose a shape:</h1>
+<div>
+    <select>
+        <option>Choose Shape:</option>
+        <option value="Cylinder">Cylinder</option>
+        <option value="Sphere">Sphere</option>
+        <option value="blue">Blue</option>
+    </select>
+</div>
+<div class="Cylinder box">
+    <form name="myform" action="javascript:CylinderVolume(Radius.value, Height.value)">
+        <label for="html">Radius</label> <input type="text" id="Radius" maxlength="40"> <br/>
+        <label for="html">Height</label> <input type="text" id="Height" maxlength="40"> <br/>
+        <input name="Submit"  type="submit" value="Calculate"/>
+    </form>
+</div>
+<div class="Sphere box">
+    <form name="myform" action="javascript:SphereVolume(SRadius.value)">
+        <label for="html">Radius</label> <input type="text" id="SRadius" maxlength="40"> <br/>
+        <input name="Submit"  type="submit" value="Calculate"/>
+    </form>
+</div>
+<div class="green box">You have selected <strong>green option</strong> so i am here</div>
+<div class="blue box">You have selected <strong>blue option</strong> so i am here</div>
+</body>
+</html>
