@@ -40,6 +40,12 @@
             alert("Sphere Volume: " + V);
         }
     </script>
+    <script type="text/javascript">
+        function ConeVolume(ConeR, ConeH) {
+            const V=3.14*ConeR**2*ConeH/3
+            alert("Cone Volume: " + V);
+        }
+    </script>
 </head>
 <body>
 <h1>Choose a shape:</h1>
@@ -48,7 +54,7 @@
         <option>Choose Shape:</option>
         <option value="Cylinder">Cylinder</option>
         <option value="Sphere">Sphere</option>
-        <option value="blue">Blue</option>
+        <option value="Cone">Cone</option>
     </select>
 </div>
 <div class="Cylinder box">
@@ -64,7 +70,12 @@
         <input name="Submit"  type="submit" value="Calculate"/>
     </form>
 </div>
-<div class="green box">You have selected <strong>green option</strong> so i am here</div>
-<div class="blue box">You have selected <strong>blue option</strong> so i am here</div>
+<div class="Cone box">
+    <form name="myform" action="javascript:ConeVolume(CRadius.value, CHeight.value)">
+        <label for="html">Radius</label> <input type="text" id="CRadius" maxlength="40"> <br/>
+        <label for="html">Height</label><input type="text" id="CHeight" maxlength="40"> <br/>
+        <input name="Submit"  type="submit" value="Calculate"/>
+    </form>
+</div>
 </body>
 </html>
